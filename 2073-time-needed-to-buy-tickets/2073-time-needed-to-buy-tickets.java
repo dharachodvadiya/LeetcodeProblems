@@ -6,18 +6,9 @@ class Solution {
         for(int i=0; i< length; i++)
         {
             if(i<=k)
-            {
-                if(tickets[i] <= tickets[k])
-                    time += tickets[i];
-                else
-                    time += tickets[k];
-            }else
-            {
-                if(tickets[i] <= tickets[k] -1)
-                    time += tickets[i];
-                else
-                    time += (tickets[k]-1);
-            }
+                time += Math.min(tickets[i], tickets[k]);
+            else
+                time += Math.min(tickets[i], tickets[k]-1);
         }
         
         return time;
