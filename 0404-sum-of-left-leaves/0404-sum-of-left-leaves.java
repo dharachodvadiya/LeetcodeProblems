@@ -20,7 +20,6 @@ class Solution {
     
     int traversal(TreeNode root, boolean isLeft, int sum)
     {
-        System.out.println( " val = " + root.val + " sum =" + sum);
         if(root.left == null && root.right == null && isLeft)
         {
             System.out.println( " leaf = " + root.val);
