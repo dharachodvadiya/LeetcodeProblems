@@ -22,12 +22,9 @@ class Solution {
     {
         if(root.left == null && root.right == null && isLeft)
         {
-            System.out.println( " leaf = " + root.val);
              return sum + root.val;
         }
-           
-       
-       
+        
         if(root.left != null)
             sum += traversal(root.left, true,sum);
           
