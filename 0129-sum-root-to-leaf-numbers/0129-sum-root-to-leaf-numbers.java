@@ -15,30 +15,16 @@
  */
 class Solution {
     public int sumNumbers(TreeNode root) {
-        return traversal(root,new StringBuilder('0'), 0);
+        return traversal(root, 0);
     }
-    static int traversal(TreeNode root, StringBuilder sb, int sum)
+    static int traversal(TreeNode root, int sum)
     {
-        sb.append(root.val);
+        if(root == null)
+            return 0;
+        sum=sum*10+root.val;
         if(root.left == null && root.right == null)
-            return sum + Integer.parseInt(sb.toString());
+            return sum;
             
-        int count = 0;
-        if(root.left != null)
-        {
-            count+=traversal(root.left,sb, sum); 
-            sb.setLength(sb.length() - 1);
-        }
-        
-        if(root.right != null)
-        {
-            count+=traversal(root.right,sb, sum);
-            sb.setLength(sb.length() - 1);  
-        }
-            
-       
-        
-            
-        return count;
+        return traversal(root.left, sum) + traversal(root.right, sum) ;
     }
 }
